@@ -1,0 +1,11 @@
+FROM openjdk:11-jdk-slim
+WORKDIR /app
+COPY sum.java .
+RUN javac sum.java
+CMD ["java","sum"]
+
+
+docker build -t sum-java .
+docker tag sum-java 21z123/repo
+docker push 21z123/repo
+docker run 21z123/repo
